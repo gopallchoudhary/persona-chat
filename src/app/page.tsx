@@ -2,10 +2,10 @@
 import ChatPage from "@/components/ChatPage";
 import PersonaCard from "@/components/PersonaCard";
 import { PersonaChatContext } from "@/context/PersonaContext";
-import { useContext, useEffect } from "react";
+import { useContext} from "react";
 
 export default function Home() {
-  const { open, setOpen } = useContext(PersonaChatContext);
+  const { open} = useContext(PersonaChatContext);
   return (
     <div className=" ">
       {open ? (

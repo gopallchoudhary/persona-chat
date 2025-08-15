@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
             messages
         })
 
-        const msg = response.choices[0].message.content
+        const msg: string | null = response.choices[0].message.content as string
         return NextResponse.json({
             success: true,
             message: "data fetched successfully",

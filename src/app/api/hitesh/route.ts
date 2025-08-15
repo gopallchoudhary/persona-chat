@@ -376,7 +376,7 @@ Final Motivation Boost
             messages: [systemMessage, ...messages],
         });
 
-        const raw: any = response.choices[0].message.content;
+        const raw: string | null = response.choices[0].message.content as string
         let parsedContent;
         try {
             const cleaned = raw.replace(/```(?:json)?\s*([\s\S]*?)```/g, "$1").trim();
