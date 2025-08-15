@@ -8,6 +8,11 @@ const ChatPage = () => {
     const { messages, sendMessage, setOpen } = useContext(PersonaChatContext)
     const [inputMessage, setInputMessage] = useState("")
 
+    type ChatMessage = {
+        role: "user" | "assistant";
+        content: string;
+    };
+
     const [loading, setLoading] = useState(false);
 
     const handleSend = async () => {
@@ -27,14 +32,14 @@ const ChatPage = () => {
                 {/* Chat Header */}
                 <div className="bg-blue-500  text-white p-5 text-center">
                     <div className='flex'>
-                        <button onClick={() => setOpen((prev: any) => !prev)} className='hover:cursor-pointer'>Back</button>
+                        <button onClick={() => setOpen((prev: boolean) => !prev)} className='hover:cursor-pointer'>Back</button>
                     </div>
                     <h1 className="text-lg font-semibold">Chat Box</h1>
                 </div>
 
                 {/* Messages Container */}
                 <div className="flex-1 p-5 overflow-y-auto space-y-4">
-                    {messages?.map((message: any, index: any) => (
+                    {messages?.map((message: ChatMessage, index: number) => (
                         <div
                             key={index}
                             className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}

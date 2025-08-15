@@ -1,6 +1,6 @@
 "use client";
 import { PersonaChatContext } from "@/context/PersonaContext";
-import { useContext} from "react";
+import { useContext } from "react";
 
 interface PersonProps {
     name: string;
@@ -23,7 +23,7 @@ export default function PersonaCard({ name, imageURL }: PersonProps) {
             </div>
             <button
                 onClick={() => {
-                    setOpen((prev: any) => !prev)
+                    setOpen((prev:boolean) => !prev)
                     setCurrentPersona(name)
                 }}
                 className="bg-gradient-to-r from-indigo-400 to-cyan-400  w-full text-white px-6 py-2 rounded shadow-md hover:cursor-pointer text-lg font-medium hover:bg-gradient-to-r hover:from-blue-600 hover:to-violet-600 duration-500 transition-colors"

@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
         const { messages } = reqBody
 
 
-        
+
 
         const response = await client.chat.completions.create({
             model: "gemini-2.5-flash",
@@ -25,10 +25,16 @@ export async function POST(request: NextRequest) {
             message: "data fetched successfully",
             msg
         })
-    } catch (error: any) {
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            return NextResponse.json({
+                success: false,
+                message: error.message
+            });
+        }
         return NextResponse.json({
             success: false,
-            message: error.message
-        })
+            message: String(error)
+        });
     }
 }
