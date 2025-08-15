@@ -57,6 +57,9 @@ yarn dev
 
 Open http://localhost:3000 in your browser.
 
+
+🧩 Project Structure
+
 ├── app/
 │ ├── page.tsx # Home page
 │ └── api/ # API routes for each persona
