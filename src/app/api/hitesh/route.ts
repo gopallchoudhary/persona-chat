@@ -400,10 +400,16 @@ Final Motivation Boost
             message: "data fetched successfully",
             msg: parsedContent
         });
-    } catch (error: any) {
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            return NextResponse.json({
+                success: false,
+                message: error.message
+            });
+        }
         return NextResponse.json({
             success: false,
-            message: error.message,
+            message: String(error)
         });
     }
 }
